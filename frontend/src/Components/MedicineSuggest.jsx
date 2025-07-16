@@ -47,26 +47,35 @@ function MedicineSuggest({ onSelect }) {
     },[]);
 
 
+    const ClearInputField = () =>{
+        setTerm('')
+    }
+
+
     
 
     return (
         <div ref={wrapperRef} style={{ position: 'relative', width: '100%' }}>
-            <input type="text" value={term} onChange={e => setTerm(e.target.value)} placeholder='Medicine Name' className="form-control mb-2" />
+
+            <div className='d-flex gap-2 mb-4'>
+            <input type="text" value={term} onChange={e => setTerm(e.target.value)} placeholder='Enter the Medicine Name' className="form-control  py-3" />
+            <button disabled={!term} onClick={ClearInputField} className='btn btn-primary'>Clear</button>
+            </div>
 
             {
                 suggestions.length > 0 && (
-                    <ul className='text-dark text-start rounded' style={{ position: 'absolute', top: '100%', left: 0, right: 0, maxHeight: '150px', margin: 0, padding: '4px 0', listStyle: 'none', background: '#fff', overflowY: 'auto', zIndex: 10 }}>
+                    <ul className='text-dark text-start rounded' style={{ position: 'absolute', top: '100%', left: 0, right: 0, maxHeight: '180px', margin: 0, padding: '5px', listStyle: 'none', background: '#fff', overflowY: 'auto', zIndex: 10 }}>
 
                         {suggestions.map((name, i) => (
                             <li key={i}
-                            
+                                className='mb-1 '
                                 onMouseDown={e => e.preventDefault()}
                                 onClick={() => {
                                     onSelect(name);
                                     setTerm(name);
                                     setSuggestions([])
                                 }}
-                                style={{ padding: '2px', cursor: 'pointer' }}
+                                style={{ padding: '2px', cursor: 'pointer',borderBottom: '1px solid #ddd' }}
                             >
                                 {name}
                             </li>

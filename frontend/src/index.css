@@ -8,6 +8,7 @@ html,body{
 /* PRIMARY DIV */
 .primaryDIV{
     width: 600px;
+    min-height: 600px;
 }
 
 
@@ -23,6 +24,8 @@ html,body{
         padding: 1rem;
     }
 }
+
+
 
 
 

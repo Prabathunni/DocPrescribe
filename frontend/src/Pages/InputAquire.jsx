@@ -14,7 +14,7 @@ function InputAquire() {
     age: "",
     gender: "",
     diagnosis: "",
-    medicines: [{ name: "", dosage: "", frequency: "", route: "" }]
+    medicines: []
   })
 
   const printRef = useRef();
@@ -46,6 +46,8 @@ function InputAquire() {
     console.log("button Clicked");
 
   }
+
+  
 
 
 
@@ -87,16 +89,20 @@ function InputAquire() {
           )}
 
 
-          <div className='d-flex flex-column d-print-none'>
+
+          <div className='d-flex flex-column justify-content-end d-print-none' style={{height:'265px'}}>
 
             {step > 1 && <button onClick={prevStep} className='btn btn-outline-light py-3 mt-5'><i class="fa-solid fa-arrow-right fa-flip-horizontal fa-lg me-2"></i> Back</button>}
-
-            {step < 3 ?
-              (<button onClick={nextStep} className='btn btn-outline-light py-3 mt-3 mb-3 form-control'>Next <i class="fa-solid fa-arrow-right fa-lg ms-2"></i></button>)
+            {
+              step < 2 ? <button onClick={nextStep} className='btn btn-outline-light py-3 mt-3 mb-3'> Next <i class="fa-solid fa-arrow-right fa-lg ms-2 "></i></button>
               :
-              (<button onClick={createPrescription} className='btn btn-primary mt-3 py-3'>Save Prescription</button>)
+              formData.medicines.length > 0 && step <3 ?
+              (<button onClick={nextStep} className='btn btn-outline-light py-3 mt-3 mb-3'> Next <i class="fa-solid fa-arrow-right fa-lg ms-2 "></i></button>)
+              :
+              formData.medicines.length > 0 && ( <button onClick={createPrescription} className='btn btn-primary py-3 mt-3'>Save Prescription</button> )
 
             }
+
             {step === 1 && (<span><Link to={'/pickup'} className='text-white'>Go Back</Link></span>)}
           </div>
 

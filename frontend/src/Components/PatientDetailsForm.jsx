@@ -38,7 +38,7 @@ function PatientDetailsForm({ formData, setFormData }) {
                 placeholder="Enter diagnosis details"
                 value={formData.diagnosis}
                 onChange={e => setFormData({ ...formData, diagnosis: e.target.value })}
-                className="form-control mb-5"
+                className="form-control"
             />
 
 
