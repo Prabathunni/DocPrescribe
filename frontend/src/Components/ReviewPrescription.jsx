@@ -1,11 +1,13 @@
 import React from 'react'
 
-function ReviewForm({ formData }) {
-  return (
-    <div>
-      <h4 className="mb-3">Review Information</h4>
+function ReviewPrescription({ formData }) {
 
-      <div className="prescription-wrapper p-4 text-dark text-start" style={{ maxWidth: '800px', margin: 'auto', background: '#fff', border: '1px solid #ccc', fontFamily: 'serif' }}>
+
+  return (
+    <>
+
+      <div className="p-4 text-dark text-start"
+       style={{ maxWidth: '800px', margin: 'auto', background: '#fff', fontFamily: 'serif'}}>
 
         <div className="text-center mb-4">
           <h2>CLINIC NAME HERE </h2>
@@ -49,7 +51,7 @@ function ReviewForm({ formData }) {
           </table>
         </div>
 
-        <div className="text-end mt-3">
+        <div id='prescriptionFooter' className="text-end mt-3">
           <p>_______________________</p>
           <p><em>Doctor's Signature</em></p>
           <p>{new Date().toLocaleDateString()}</p>
@@ -59,8 +61,8 @@ function ReviewForm({ formData }) {
 
 
 
-    </div>
+    </>
   )
 }
 
-export default ReviewForm
+export default ReviewPrescription

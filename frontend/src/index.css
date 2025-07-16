@@ -5,6 +5,12 @@ html,body{
 }
 
 
+/* PRIMARY DIV */
+.primaryDIV{
+    width: 600px;
+}
+
+
 
 /* LOGIN AND REGISTER */
 
@@ -26,7 +32,12 @@ html,body{
         background: white;
     }
 
+    .primaryDIV{
+        width: 100%;
+    }
+
     .prescription-wrapper {
+        min-height: 900px;
         box-shadow: none;
         border: none;
         margin: 0;
