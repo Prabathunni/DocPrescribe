@@ -12,7 +12,7 @@ function PatientDetailsForm({ formData, setFormData }) {
                 className="form-control mb-2 py-3"
             />
 
-            <div className='d-flex gap-3 mb-5'>
+            <div className='d-flex gap-3 mb-3'>
 
                 <input
                     type="number"
@@ -31,9 +31,16 @@ function PatientDetailsForm({ formData, setFormData }) {
                     <option value="Female">Female</option>
                 </select>
 
-
-
             </div>
+
+            <textarea
+                rows={3}
+                placeholder="Enter diagnosis details"
+                value={formData.diagnosis}
+                onChange={e => setFormData({ ...formData, diagnosis: e.target.value })}
+                className="form-control mb-5"
+            />
+
 
         </>
     )

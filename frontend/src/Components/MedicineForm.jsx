@@ -1,43 +1,58 @@
-import React from 'react'
+import MedicineSuggest from './MedicineSuggest';
 
 function MedicineForm({ formData, setFormData }) {
 
-  const handleMedicineChange = (index, field, value) => {
-    const updated = [...formData.medicines];
-    updated[index][field] = value;
-    setFormData({ ...formData, medicines: updated });
+  const {medicines} = formData;
+
+  const handleAddMedicine = (name) => {
+    const newMedicine = {
+      name,
+      dosage: '',
+      frequency: '',
+      route: ''
+    };
+
+    setFormData(prev => ({
+      ...prev,
+      medicines: [...prev.medicines, newMedicine]
+    }));
   };
 
-  const addMedicine = () => {
-    setFormData({
-      ...formData,
-      medicines: [...formData.medicines, { name: "", dosage: "", frequency: "" }]
-    });
+
+  const handleMedicineChange = (index, field, value) =>{
+    const updateMeds = [...medicines];
+    updateMeds[index][field] = value;
+
+    setFormData(prev => ({
+      ...prev,
+      medicines: updateMeds
+    }))
   };
+
+
+  const handleRemoveMedicine = (index) => {
+    const updatedMeds = [...medicines];
+    
+    updatedMeds.splice(index, 1);
+
+    setFormData(prev => ({
+      ...prev,
+      medicines: updatedMeds
+    }));
+  }
+
+
 
   return (
     <div>
-      <h4 className='mb-4'>Diagnosis and Medicine Details</h4>
+      <h4 className='mb-4'>Medicine Details</h4>
 
-
-      <textarea
-        rows={3}
-        placeholder="Enter diagnosis details"
-        value={formData.diagnosis}
-        onChange={e => setFormData({ ...formData, diagnosis: e.target.value })}
-        className="form-control mb-3"
-      />
+      <MedicineSuggest onSelect={handleAddMedicine}/>
 
       {formData.medicines.map((med, idx) => (
         <div key={idx} className="mb-3 border p-2 rounded">
           
-          <input
-            type="text"
-            placeholder="Medicine Name"
-            value={med.name}
-            onChange={e => handleMedicineChange(idx, "name", e.target.value)}
-            className="form-control mb-2"
-          />
+          <div><strong>Medicine: </strong> {med.name} </div>
 
           <div className='d-flex gap-3'>
 
@@ -87,16 +102,14 @@ function MedicineForm({ formData, setFormData }) {
 
             </select>
 
-
           </div>
+
+          <button onClick={()=>handleRemoveMedicine(idx)} className='btn btn-danger'>Remove</button>
 
 
 
         </div>
       ))}
-      <button onClick={addMedicine} className="btn btn-sm btn-outline-warning">
-        + Add Another Medicine
-      </button>
 
     </div>
   )

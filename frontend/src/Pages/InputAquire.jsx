@@ -60,7 +60,7 @@ function InputAquire() {
 
 
 
-        <form onSubmit={createPrescription} className='login-form'>
+        <div className='login-form'>
 
           {step === 1 && (<PatientDetailsForm formData={formData} setFormData={setFormData} />)}
           {step === 2 && (<MedicineForm formData={formData} setFormData={setFormData} />)}
@@ -94,7 +94,7 @@ function InputAquire() {
             {step < 3 ?
               (<button onClick={nextStep} className='btn btn-outline-light py-3 mt-3 mb-3 form-control'>Next <i class="fa-solid fa-arrow-right fa-lg ms-2"></i></button>)
               :
-              (<button type='submit' className='btn btn-primary mt-3 py-3'>Save Prescription</button>)
+              (<button onClick={createPrescription} className='btn btn-primary mt-3 py-3'>Save Prescription</button>)
 
             }
             {step === 1 && (<span><Link to={'/pickup'} className='text-white'>Go Back</Link></span>)}
@@ -102,7 +102,7 @@ function InputAquire() {
 
 
 
-        </form>
+        </div>
 
 
 
