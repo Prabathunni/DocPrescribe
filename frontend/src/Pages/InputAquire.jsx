@@ -89,10 +89,10 @@ function InputAquire() {
 
           <div className='d-flex flex-column d-print-none'>
 
-            {step > 1 && <button onClick={prevStep} className='btn btn-outline-light py-3 mt-5'>Back</button>}
+            {step > 1 && <button onClick={prevStep} className='btn btn-outline-light py-3 mt-5'><i class="fa-solid fa-arrow-right fa-flip-horizontal fa-lg me-2"></i> Back</button>}
 
             {step < 3 ?
-              (<button onClick={nextStep} className='btn btn-light py-3 mt-3 mb-3 form-control'>Next</button>)
+              (<button onClick={nextStep} className='btn btn-outline-light py-3 mt-3 mb-3 form-control'>Next <i class="fa-solid fa-arrow-right fa-lg ms-2"></i></button>)
               :
               (<button type='submit' className='btn btn-primary mt-3 py-3'>Save Prescription</button>)
 

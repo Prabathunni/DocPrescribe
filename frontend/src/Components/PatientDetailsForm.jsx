@@ -1,33 +1,42 @@
 import React from 'react'
 
-function PatientDetailsForm( { formData, setFormData } ) {
+function PatientDetailsForm({ formData, setFormData }) {
     return (
         <>
             <h4 className='mb-3'>Patient Details</h4>
             <input
                 type="text"
-                placeholder="Name"
+                placeholder="Patient Name"
                 value={formData.name}
                 onChange={e => setFormData({ ...formData, name: e.target.value })}
-                className="form-control mb-2"
+                className="form-control mb-2 py-3"
             />
-            <input
-                type="number"
-                placeholder="Age"
-                value={formData.age}
-                onChange={e => setFormData({ ...formData, age: e.target.value })}
-                className="form-control mb-2"
-            />
-            <select
-                value={formData.gender}
-                onChange={e => setFormData({ ...formData, gender: e.target.value })}
-                className="form-control mb-2"
-            >
-                <option value="">Select Gender</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-            </select>
-        </>)
+
+            <div className='d-flex gap-3 mb-5'>
+
+                <input
+                    type="number"
+                    placeholder="Age"
+                    value={formData.age}
+                    onChange={e => setFormData({ ...formData, age: e.target.value })}
+                    className="form-control py-3"
+                />
+                <select
+                    value={formData.gender}
+                    onChange={e => setFormData({ ...formData, gender: e.target.value })}
+                    className="form-control py-3"
+                >
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+
+
+
+            </div>
+
+        </>
+    )
 }
 
 export default PatientDetailsForm

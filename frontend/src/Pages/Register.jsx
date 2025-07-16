@@ -6,9 +6,9 @@ function Register() {
   return (
     <div className='bg-success d-flex justify-content-center align-items-center' style={{ minHeight: '100vh' }}>
 
-      <div className='bg-success border border-dark border-3 shadow-sm text-center  text-white' style={{ width: '600px' }}>
+      <div className='bg-success border border-light border-1 shadow-sm text-center  text-white' style={{ width: '600px' }}>
 
-        <h1 className='mt-4 mb-5' style={{ fontFamily: '"Lavishly Yours", cursive' }}>DocPrescribe</h1>
+        <h1 className='mt-4 mb-5 text-warning' style={{ fontFamily: '"Lavishly Yours", cursive' }}>DocPrescribe</h1>
 
         <hr style={{ width: '80%', margin: '0 auto' }} />
 
@@ -27,16 +27,16 @@ function Register() {
           </Form.Floating>
 
           <Form.Select aria-label="Select Doctor Qualification" className='mb-2'>
-            <option disabled value="">Select Qualification Stream</option>
-            <option value="MBBS">MBBS (Bachelor of Medicine, Bachelor of Surgery)</option>
-            <option value="BDS">BDS (Bachelor of Dental Surgery)</option>
-            <option value="BHMS">BHMS (Bachelor of Homeopathic Medicine & Surgery)</option>
-            <option value="BAMS">BAMS (Bachelor of Ayurvedic Medicine & Surgery)</option>
-            <option value="BUMS">BUMS (Bachelor of Unani Medicine & Surgery)</option>
-            <option value="MD">MD (Doctor of Medicine)</option>
-            <option value="MS">MS (Master of Surgery)</option>
-            <option value="DNB">DNB (Diplomate of National Board)</option>
-            <option value="MDS">MDS (Master of Dental Surgery)</option>
+            <option >Select Qualification Stream</option>
+            <option value="MBBS">MBBS</option>
+            <option value="BDS">BDS</option>
+            <option value="BHMS">BHMS</option>
+            <option value="BAMS">BAMS</option>
+            <option value="BUMS">BUMS</option>
+            <option value="MD">MD</option>
+            <option value="MS">MS</option>
+            <option value="DNB">DNB</option>
+            <option value="MDS">MDS</option>
           </Form.Select>
 
 
@@ -76,11 +76,11 @@ function Register() {
             <label htmlFor="floatingPasswordCustom">Password</label>
           </Form.Floating>
 
-          <button type='submit' className='btn btn-outline-light form-control py-3'>Register</button>
+          <button type='submit' className='btn btn-outline-warning form-control py-3'>Register</button>
 
         </Form>
 
-        <p>Already Have an account?<Link to={'/'} className='text-dark'> click here</Link> to Login</p>
+        <p>Already Have an account?<Link to={'/'} className='text-light'> click here</Link> to Login</p>
 
       </div>
 
