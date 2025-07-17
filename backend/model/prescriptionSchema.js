@@ -20,9 +20,9 @@ const prescriptionsSchema = new mongoose.Schema({
     medicines: [
         {
             name: { type: String, required: true },
-            dosage: { type: String, required: true },
-            frequency: { type: String, required: true },
-            route: { type: String, required: true }
+            dosage: { type: String ,default:'N/A'},
+            frequency: { type: String, default:'N/A'},
+            route: { type: String ,default:'N/A'}
         }
     ],
     doctorID: {

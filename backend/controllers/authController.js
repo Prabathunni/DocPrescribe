@@ -13,7 +13,7 @@ exports.registerDocController = async (req,res) => {
 
         const existingUser = await doctorModel.findOne({email});
 
-        if(existingUser) return res.status(200).json("User Email Already Have an Account");
+        if(existingUser) return res.status(404).json("User Email Already Have an Account");
 
         const encryptedPassword = await bCrypt.hash(password, 8)
 
@@ -43,11 +43,11 @@ exports.loginDocController = async (req,res) => {
         const { email, password } = req.body;
 
         const newUser = await doctorModel.findOne({email})
-        if (!newUser) return res.status(200).json("No account Exists! Please Register");
+        if (!newUser) return res.status(404).json("No account Exists! Please Register");
 
         const user = await doctorModel.findOne({email})
         const isPasswordValid = await bCrypt.compare(password, user.password);
-        if(!isPasswordValid) return res.status(200).json("Wrong Password");
+        if(!isPasswordValid) return res.status(404).json("Wrong Password");
 
         const token = jwt.sign({userId: user._id}, process.env.JWT_SECRET, { expiresIn: '7d' })
 
