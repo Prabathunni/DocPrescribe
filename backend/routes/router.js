@@ -6,18 +6,23 @@ const verifyController = require('../controllers/verifyController');
 const router = express.Router();
 
 
-// Dr Authentication____________________________________________
-router.post('/api/auth/register', registerDocController);
-router.post('/api/auth/login', loginDocController);
-// logout 
-router.get('/api/auth/logout', jwtMiddleware, logoutDocController);
-// verify route
-router.get('/api/auth/verify', verifyController)
+console.log("Registering route: POST /auth/register");
+router.post('/auth/register', registerDocController);
 
+console.log("Registering route: POST /auth/login");
+router.post('/auth/login', loginDocController);
 
-// Prescriptions_________________________________________________
-router.post('/api/prescription/add', jwtMiddleware, addPrescribtionController)
-router.get('/api/prescription', jwtMiddleware, getAllPrescriptions)
+console.log("Registering route: GET /auth/logout");
+router.get('/auth/logout', jwtMiddleware, logoutDocController);
+
+console.log("Registering route: GET /auth/verify");
+router.get('/auth/verify', verifyController);
+
+console.log("Registering route: POST /prescription/add");
+router.post('/prescription/add', jwtMiddleware, addPrescribtionController);
+
+console.log("Registering route: GET /prescription");
+router.get('/prescription', jwtMiddleware, getAllPrescriptions);
 
 
 
