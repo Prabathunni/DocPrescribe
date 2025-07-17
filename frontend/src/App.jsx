@@ -5,7 +5,7 @@ import Prescriptions from "./Pages/Prescriptions"
 import InputAquire from "./Pages/InputAquire"
 import Login from "./Pages/Login"
 import PrivateRoute from "./routes/PrivateRoute"
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
 

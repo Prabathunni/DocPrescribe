@@ -7,17 +7,17 @@ const router = express.Router();
 
 
 // Dr Authentication____________________________________________
-router.post('/auth/register', registerDocController);
-router.post('/auth/login', loginDocController);
+router.post('/api/auth/register', registerDocController);
+router.post('/api/auth/login', loginDocController);
 // logout 
-router.get('/auth/logout', jwtMiddleware, logoutDocController);
+router.get('/api/auth/logout', jwtMiddleware, logoutDocController);
 // verify route
-router.get('/auth/verify', verifyController)
+router.get('/api/auth/verify', verifyController)
 
 
 // Prescriptions_________________________________________________
-router.post('/prescription/add', jwtMiddleware, addPrescribtionController)
-router.get('/prescription', jwtMiddleware, getAllPrescriptions)
+router.post('/api/prescription/add', jwtMiddleware, addPrescribtionController)
+router.get('/api/prescription', jwtMiddleware, getAllPrescriptions)
 
 
 
