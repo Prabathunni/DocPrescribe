@@ -19,8 +19,6 @@ app.use(cors({
 // middlewwares
 app.use(express.json());
 app.use(cookieParser())
-
-
 app.use('/api', router)
 
 if(process.env.NODE_ENV === 'production'){
@@ -31,7 +29,9 @@ if(process.env.NODE_ENV === 'production'){
     })
 }
 
-
+app.get('/',(req,res)=>{
+    res.send("HELLOLANG Server running...")
+})
 
 app.listen(PORT, ()=>{
     console.log(`Server Running at Port ${PORT}`);
