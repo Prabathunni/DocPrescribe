@@ -25,13 +25,11 @@ const prescriptionsSchema = new mongoose.Schema({
             route: { type: String, required: true }
         }
     ],
-    doctorID: [
-        {
+    doctorID: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'doctors',
             required: true
         }
-    ]
 }, { timestamps: true })
 
 
