@@ -33,7 +33,7 @@ exports.getAllPrescriptions = async (req,res) => {
             doctorID
         })
 
-        
+        res.status(200).json(prescriptions)
         
     } catch (error) {
         res.status(500).json(error.message)
