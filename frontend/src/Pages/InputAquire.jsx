@@ -1,12 +1,17 @@
 import React, { useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import PatientDetailsForm from '../Components/PatientDetailsForm';
 import MedicineForm from '../Components/MedicineForm';
 import ReviewPrescription from '../Components/ReviewPrescription';
 import html2pdf from 'html2pdf.js';
+import { addPrescriptionAPI } from '../services/apiServices';
+import { Spinner } from 'react-bootstrap';
 
 function InputAquire() {
 
+  const navigate = useNavigate();
+  const [isLoading, setIsloading] = useState(false)
+  const printRef = useRef();
 
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
@@ -17,12 +22,39 @@ function InputAquire() {
     medicines: []
   })
 
-  const printRef = useRef();
 
+
+  const nextStep = () => setStep(prev => prev + 1)
+  const prevStep = () => setStep(prev => prev - 1)
+
+
+  const addPrescription = async (e) => {
+    e.preventDefault();
+    try {
+      const result = await addPrescriptionAPI(formData, setIsloading)
+      alert(result?.data);
+      setTimeout(() => {
+        navigate('/pickup')
+      }, 1000);
+
+    } catch (error) {
+      alert("Prescription Not Saved!")
+      console.log(error);
+      setIsloading(false)
+
+    } finally {
+      setIsloading(false)
+    }
+
+  }
+
+
+  // PRINT
   const handlePrint = () => {
     window.print()
   }
 
+  // PDF DOWNLOAD
   const downloadPDF = () => {
     const element = printRef.current;
 
@@ -37,19 +69,6 @@ function InputAquire() {
     html2pdf().set(opt).from(element).save();
   }
 
-  const nextStep = () => setStep(prev => prev + 1)
-  const prevStep = () => setStep(prev => prev - 1)
-
-
-  const createPrescription = (e) => {
-    e.preventDefault();
-    console.log("button Clicked");
-
-  }
-
-  
-
-
 
   return (
     <div className='bg-success d-flex justify-content-center align-items-center' style={{ minHeight: '100vh' }}>
@@ -61,45 +80,36 @@ function InputAquire() {
         <hr style={{ width: '80%', margin: '0 auto' }} />
 
 
-
-        <div className='login-form'>
-
-          {step === 1 && (<PatientDetailsForm formData={formData} setFormData={setFormData} />)}
-          {step === 2 && (<MedicineForm formData={formData} setFormData={setFormData} />)}
-          {step === 3 && (
+        <div className='secondaryDIV'>
+          {isLoading ?
+            <Spinner animation="border" variant="light" />
+            :
             <>
-
-              <div className='d-print-none'>
-                <h4 className="mb-3">Review Information</h4>
-
-                <div className='d-flex justify-content-end gap-2 mb-3'>
-                  <button onClick={handlePrint} className='btn btn-outline-warning btn-sm'>Print<i class="fa-solid fa-print ms-2"></i></button>
-                  <button onClick={downloadPDF} className='btn btn-danger btn-sm'>Download Pdf<i class="fa-solid fa-file-pdf ms-2"></i></button>
-                </div>
-
-              </div>
-
-              <div ref={printRef} className='prescription-wrapper'>
-
-                <ReviewPrescription formData={formData} />
-
-              </div>
-
+              {step === 1 && (<PatientDetailsForm formData={formData} setFormData={setFormData} />)}
+              {step === 2 && (<MedicineForm formData={formData} setFormData={setFormData} />)}
+              {step === 3 &&
+                (<div ref={printRef} className='priscription-for-print'>
+                  <ReviewPrescription formData={formData} printEvent={handlePrint} pdfDownload={downloadPDF} />
+                </div>)
+              }
             </>
-          )}
+          }
 
 
+          {/* ------BUTTONS ( NEXT, BACK, SAVE PRESCRIPTION )  ------ */}
 
-          <div className='d-flex flex-column justify-content-end d-print-none' style={{height:'265px'}}>
+          <div className='d-flex flex-column justify-content-end d-print-none' style={{ height: '265px' }}>
 
             {step > 1 && <button onClick={prevStep} className='btn btn-outline-light py-3 mt-5'><i class="fa-solid fa-arrow-right fa-flip-horizontal fa-lg me-2"></i> Back</button>}
             {
-              step < 2 ? <button onClick={nextStep} className='btn btn-outline-light py-3 mt-3 mb-3'> Next <i class="fa-solid fa-arrow-right fa-lg ms-2 "></i></button>
-              :
-              formData.medicines.length > 0 && step <3 ?
-              (<button onClick={nextStep} className='btn btn-outline-light py-3 mt-3 mb-3'> Next <i class="fa-solid fa-arrow-right fa-lg ms-2 "></i></button>)
-              :
-              formData.medicines.length > 0 && ( <button onClick={createPrescription} className='btn btn-primary py-3 mt-3'>Save Prescription</button> )
+              step < 2 ?
+
+                formData.name && (<button onClick={nextStep} className='btn btn-outline-light py-3 mt-3 mb-3'> Next <i class="fa-solid fa-arrow-right fa-lg ms-2 "></i></button>)
+                :
+                formData.medicines.length > 0 && step < 3 ?
+                  (<button onClick={nextStep} className='btn btn-outline-light py-3 mt-3 mb-3'> Next <i class="fa-solid fa-arrow-right fa-lg ms-2 "></i></button>)
+                  :
+                  formData.medicines.length > 0 && (<button onClick={addPrescription} className='btn btn-primary py-3 mt-3'>Save Prescription</button>)
 
             }
 
@@ -109,10 +119,6 @@ function InputAquire() {
 
 
         </div>
-
-
-
-
 
       </div>
 

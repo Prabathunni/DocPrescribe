@@ -47,3 +47,17 @@ export const verifyAPI = async () => {
         return false
     }
 }
+
+
+export const addPrescriptionAPI = async (prescriptionData, setIsloading) => {
+    try {
+        setIsloading(true)
+        const result = await axiosInstance.post('/prescription/add', prescriptionData);
+        return result
+        
+    } catch (error) {
+        console.log(error);
+        throw error
+        
+    }
+}

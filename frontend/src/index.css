@@ -14,12 +14,12 @@ html,body{
 
 
 /* LOGIN AND REGISTER */
-.login-form{
+.secondaryDIV{
     padding: 2rem;
 }
 
 @media screen and (max-width: 700px) {
-    .login-form{
+    .secondaryDIV{
         padding: 1rem;
     }
 }
@@ -35,7 +35,7 @@ html,body{
         width: 100%;
     }
 
-    .prescription-wrapper {
+    .priscription-for-print {
         min-height: 900px;
         box-shadow: none;
         border: none;

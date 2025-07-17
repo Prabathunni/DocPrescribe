@@ -24,7 +24,6 @@ function MedicineSuggest({ onSelect }) {
                     const cands = res?.data.approximateGroup?.candidate || [];
                     setSuggestions(cands.map(c => c.name));
 
-
                 })
                 .catch(err => {
                     if (err.code !== 'ERR_CANCELED') console.error(err)

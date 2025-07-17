@@ -56,7 +56,7 @@ function Login() {
         <h1 className='mt-3'>Login</h1>
 
 
-        <Form className='login-form' onSubmit={loginUser}>
+        <Form className='secondaryDIV' onSubmit={loginUser}>
 
           <Form.Floating className="mb-3">
             <Form.Control

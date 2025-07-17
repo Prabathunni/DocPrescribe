@@ -61,7 +61,7 @@ function Register() {
         <h1 className='mt-3'>Register</h1>
 
 
-        <Form className='login-form' onSubmit={registerUser}>
+        <Form className='secondaryDIV' onSubmit={registerUser}>
 
           <Form.Floating className="mb-2">
             <Form.Control

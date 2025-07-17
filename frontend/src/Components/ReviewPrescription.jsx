@@ -1,13 +1,24 @@
 import React from 'react'
 
-function ReviewPrescription({ formData }) {
+function ReviewPrescription({ formData, printEvent, pdfDownload }) {
 
 
   return (
     <>
+    
+      <div className='d-print-none'>
+
+        <h4 className="mb-3">Review Information</h4>
+        <div className='d-flex justify-content-end gap-2 mb-3'>
+          <button onClick={printEvent} className='btn btn-outline-warning btn-sm'>Print<i class="fa-solid fa-print ms-2"></i></button>
+          <button onClick={pdfDownload}  className='btn btn-danger btn-sm'>Download Pdf<i class="fa-solid fa-file-pdf ms-2"></i></button>
+        </div>
+
+      </div>
+
 
       <div className="p-4 text-dark text-start"
-       style={{ maxWidth: '800px', margin: 'auto', background: '#fff', fontFamily: 'serif'}}>
+        style={{ maxWidth: '800px', margin: 'auto', background: '#fff', fontFamily: 'serif' }}>
 
         <div className="text-center mb-4">
           <h2>CLINIC NAME HERE </h2>

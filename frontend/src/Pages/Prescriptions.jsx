@@ -16,7 +16,7 @@ function Prescriptions() {
   return (
     <div className='bg-success d-flex align-items-center justify-content-center' style={{ minHeight: '100vh' }}>
 
-      <div className='login-form' style={{ width: '700px', minHeight: '500px' }}>
+      <div className='secondaryDIV' style={{ width: '700px', minHeight: '500px' }}>
 
         <div className='d-inline d-md-flex align-items-center justify-content-between'>
         <h1 className='text-light'>Prescriptions History </h1>

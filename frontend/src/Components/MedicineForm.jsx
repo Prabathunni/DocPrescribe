@@ -68,6 +68,7 @@ function MedicineForm({ formData, setFormData }) {
               <label htmlFor='dose'>Dose </label>
               <input id='dose' type="text" placeholder="Dosage" value={med.dosage} onChange={e => handleMedicineChange(idx, "dosage", e.target.value)}
                 className="form-control"
+                
               />
             </div>
 
