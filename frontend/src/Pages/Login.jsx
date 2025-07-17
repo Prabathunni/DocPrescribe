@@ -27,6 +27,10 @@ function Login() {
 
       const result = await loginUserAPI(userData, setIsloading);
       alert(result?.data?.message)
+      const user = result?.data.user;
+      sessionStorage.setItem('user', JSON.stringify(user))
+
+
       navigate('/pickup')
 
     } catch (error) {
@@ -43,7 +47,7 @@ function Login() {
   return (
     <div className='bg-success d-flex justify-content-center align-items-center' style={{ minHeight: '100vh' }}>
 
-      <div className='bg-success border border-light border-1 shadow-sm text-center  text-white' style={{ width: '600px' }}>
+      <div className='bg-success  text-center  text-white' style={{ width: '600px' }}>
 
         <h1 className='mt-4 mb-5 text-warning' style={{ fontFamily: '"Lavishly Yours", cursive', fontSize: '40px' }}>DocPrescribe</h1>
 

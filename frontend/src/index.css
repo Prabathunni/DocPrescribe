@@ -14,7 +14,6 @@ html,body{
 
 
 /* LOGIN AND REGISTER */
-
 .login-form{
     padding: 2rem;
 }
@@ -26,10 +25,7 @@ html,body{
 }
 
 
-
-
-
-/* PRESCRIPTION LETTER DIV */
+/* PRESCRIPTION LETTER DIV  FOR PRINT*/
 @media print {
     body{
         background: white;
