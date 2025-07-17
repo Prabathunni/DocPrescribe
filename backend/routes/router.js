@@ -20,8 +20,6 @@ router.post('/prescription/add', jwtMiddleware, addPrescribtionController)
 router.get('/prescription', jwtMiddleware, getAllPrescriptions)
 
 
-
-
 module.exports = router;
 
 
