@@ -1,4 +1,5 @@
-html,body{
+html,
+body {
     margin: 0;
     padding: 0;
     font-family: "Tomorrow", sans-serif;
@@ -6,32 +7,44 @@ html,body{
 
 
 /* PRIMARY DIV */
-.primaryDIV{
+.primaryDIV {
     width: 600px;
     min-height: 600px;
 }
 
-
-
 /* LOGIN AND REGISTER */
-.secondaryDIV{
+.secondaryDIV {
     padding: 2rem;
 }
 
+
+/* HISTORY CARD  */
+.history-CARD {
+    width: 29rem;
+}
+
+
+
+/* RESPONSIVE CONFIG */
 @media screen and (max-width: 700px) {
-    .secondaryDIV{
+    .secondaryDIV {
         padding: 1rem;
     }
+
+    .history-CARD {
+        width: 20rem;
+    }
+
 }
 
 
 /* PRESCRIPTION LETTER DIV  FOR PRINT*/
 @media print {
-    body{
+    body {
         background: white;
     }
 
-    .primaryDIV{
+    .primaryDIV {
         width: 100%;
     }
 

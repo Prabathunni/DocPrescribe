@@ -6,6 +6,7 @@ import ReviewPrescription from '../Components/ReviewPrescription';
 import html2pdf from 'html2pdf.js';
 import { addPrescriptionAPI } from '../services/apiServices';
 import { Spinner } from 'react-bootstrap';
+import { toast } from 'react-toastify';
 
 function InputAquire() {
 
@@ -32,13 +33,11 @@ function InputAquire() {
     e.preventDefault();
     try {
       const result = await addPrescriptionAPI(formData, setIsloading)
-      alert(result?.data);
-      setTimeout(() => {
-        navigate('/pickup')
-      }, 1000);
+      toast.success(result?.data);
+      navigate('/pickup')
 
     } catch (error) {
-      alert("Prescription Not Saved!")
+      toast.warning("Prescription Not Saved!")
       console.log(error);
       setIsloading(false)
 
@@ -100,7 +99,7 @@ function InputAquire() {
 
           <div className='d-flex flex-column justify-content-end d-print-none' style={{ height: '265px' }}>
 
-            {step > 1 && <button onClick={prevStep} className='btn btn-outline-light py-3 mt-5'><i class="fa-solid fa-arrow-right fa-flip-horizontal fa-lg me-2"></i> Back</button>}
+            {step > 1 && <button onClick={prevStep} className='btn btn-outline-light py-3 '><i class="fa-solid fa-arrow-right fa-flip-horizontal fa-lg me-2"></i> Back</button>}
             {
               step < 2 ?
 

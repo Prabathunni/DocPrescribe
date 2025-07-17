@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { logoutUserAPI } from '../services/apiServices'
+import { toast } from 'react-toastify'
 
 function PickUp() {
   const navigate = useNavigate()
@@ -8,13 +9,15 @@ function PickUp() {
   const logoutUser = async () => {
     try {
       const result = await logoutUserAPI()
-      alert(result?.data)
+      toast.success(result?.data)
       sessionStorage.clear()
-      navigate('/')
+      setTimeout(() => {
+        navigate('/')
+      }, 1000);
 
     } catch (error) {
       console.log(error);
-      alert("Logout Failed")
+      toast.error("Logout Failed")
     }
   }
 
@@ -24,10 +27,10 @@ function PickUp() {
       <div className='bg-success text-center  text-white' style={{ width: '600px' }}>
 
         <div className='w-100 text-end mb-5'>
-        <button onClick={logoutUser} className='btn btn-outline-light btn-sm me-3 mb-5'>logout <i class="fa-solid fa-arrow-right-from-bracket ms-2"></i></button>
+          <button onClick={logoutUser} className='btn btn-outline-light btn-sm me-3 mb-5'>logout <i class="fa-solid fa-arrow-right-from-bracket ms-2"></i></button>
         </div>
 
-        <h1 className='mb-5'>Welcome to <span style={{ fontFamily: '"Lavishly Yours", cursive',fontSize:'60px',color:'yellow' }}>DocPrescribe</span></h1>
+        <h1 className='mb-5'>Welcome to <span style={{ fontFamily: '"Lavishly Yours", cursive', fontSize: '60px', color: 'yellow' }}>DocPrescribe</span></h1>
 
 
         <div className='d-flex flex-column p-2'>

@@ -2,6 +2,10 @@ import React from 'react'
 
 function ReviewPrescription({ formData, printEvent, pdfDownload }) {
 
+  const doctorData = JSON.parse(sessionStorage.getItem('user'))
+  console.log(doctorData);
+  
+
 
   return (
     <>
@@ -21,21 +25,21 @@ function ReviewPrescription({ formData, printEvent, pdfDownload }) {
         style={{ maxWidth: '800px', margin: 'auto', background: '#fff', fontFamily: 'serif' }}>
 
         <div className="text-center mb-4">
-          <h2>CLINIC NAME HERE </h2>
-          <p><strong>Dr. John Smith, MBBS, MD</strong></p>
-          <p>+91 9876543210 | Date: {new Date().toLocaleDateString()}</p>
+          <h2>{doctorData?.clinicName} </h2>
+          <p><strong>Dr. {doctorData?.name}, {doctorData?.qualification}</strong></p>
+          <p>+91 {doctorData?.phoneNumber} | Date: {new Date().toLocaleDateString()}</p>
         </div>
 
         <hr />
 
         <div className="mb-3">
-          <h5>Patient Details</h5>
+          <h5 style={{textDecoration:'underline'}}>Patient Details</h5>
           <p><strong>Name:</strong> {formData.name}</p>
           <p><strong>Age:</strong> {formData.age} | <strong>Gender:</strong> {formData.gender}</p>
         </div>
 
         <div className="mb-3">
-          <h5>Diagnosis / Notes</h5>
+          <h5 style={{textDecoration:'underline'}}>Diagnosis / Notes</h5>
           <p>{formData.diagnosis}</p>
         </div>
 

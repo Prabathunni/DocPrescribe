@@ -1,6 +1,6 @@
 import { axiosInstance } from "./axios";
 
-
+// ------------AUTHENTICATION APIs----------------------
 export const registerUserAPI = async (userData, setIsloading) => {
     try {
         setIsloading(true)
@@ -49,6 +49,7 @@ export const verifyAPI = async () => {
 }
 
 
+// -------------------PRESCRIPTION APIs--------------------------------
 export const addPrescriptionAPI = async (prescriptionData, setIsloading) => {
     try {
         setIsloading(true)
@@ -61,3 +62,16 @@ export const addPrescriptionAPI = async (prescriptionData, setIsloading) => {
         
     }
 }
+
+export const getAllPrescriptionsAPI = async () => {
+    try {
+        const result = await axiosInstance.get('/prescription');
+        return result
+        
+    } catch (error) {
+        console.log(error);
+        throw error
+        
+    }
+}
+

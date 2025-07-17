@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Button, Form, Spinner } from 'react-bootstrap'
 import { Link, useNavigate } from 'react-router-dom'
 import { registerUserAPI } from '../services/apiServices'
+import { toast } from 'react-toastify';
 
 function Register() {
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ function Register() {
     try {
 
       if (!name || !email || !password || !qualification || !phoneNumber || !clinicName) {
-        return alert("Fill all Input Field")
+        return toast.info("Fill all Input Field")
       }
 
       const userData = {
@@ -33,13 +34,13 @@ function Register() {
       }
 
       const result =  await registerUserAPI(userData, setIsloading);
-      alert(result?.data)
+      toast.success(result?.data)
       navigate('/')
 
     } catch (error) {
       console.log(error);
       setIsloading(false)
-      alert("Register Failed")
+      toast.error("Register Failed")
 
     } finally {
       setIsloading(false)

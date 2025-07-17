@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Form, Spinner } from 'react-bootstrap';
 import { loginUserAPI } from '../services/apiServices';
+import { toast } from 'react-toastify';
 
 function Login() {
 
@@ -17,7 +18,7 @@ function Login() {
     try {
 
       if (!email || !password) {
-        return alert("Fill all Input Field")
+        return toast.info("Fill all Input Field")
       }
 
       const userData = {
@@ -26,7 +27,8 @@ function Login() {
       }
 
       const result = await loginUserAPI(userData, setIsloading);
-      alert(result?.data?.message)
+
+      toast.success(result?.data?.message);
       const user = result?.data.user;
       sessionStorage.setItem('user', JSON.stringify(user))
 
@@ -36,7 +38,7 @@ function Login() {
     } catch (error) {
       console.log(error);
       setIsloading(false)
-      alert(error.response.data)
+      toast.error(error.response.data)
 
     } finally {
       setIsloading(false)

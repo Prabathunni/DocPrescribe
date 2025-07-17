@@ -58,7 +58,7 @@ function MedicineSuggest({ onSelect }) {
 
             <div className='d-flex gap-2 mb-4'>
             <input type="text" value={term} onChange={e => setTerm(e.target.value)} placeholder='Enter the Medicine Name' className="form-control  py-3" />
-            <button disabled={!term} onClick={ClearInputField} className='btn btn-primary'>Clear</button>
+            <button disabled={!term} onClick={ClearInputField} className='btn btn-primary'><i class="fa-solid fa-delete-left fa-xl"></i></button>
             </div>
 
             {
