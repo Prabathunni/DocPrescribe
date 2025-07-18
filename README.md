@@ -18,7 +18,7 @@ Prescribe is a full-stack web application built using the MERN stack (MongoDB, E
   <img src="https://github.com/Prabathunni/DocPrescribe/blob/main/frontend/src/assets/img4.PNG?raw=true" width="180" />
 </p>
 
-__Live: [DocPrescribe.com](https://docprescribe.onrender.com/)__
+__Live: [DocPrescribe.com](https://docprescribe.onrender.com)__
 
 
 ## Features
