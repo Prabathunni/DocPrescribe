@@ -5,9 +5,9 @@ Prescribe is a full-stack web application built using the MERN stack (MongoDB, E
 
 ## App Images
 <p align="center">
-  <img src="https://github.com/Prabathunni/DocPrescribe/blob/main/frontend/src/assets/img1.PNG?raw=true" width="180" style="margin-right: 10px;" />
-  <img src="https://github.com/Prabathunni/DocPrescribe/blob/main/frontend/src/assets/img2.PNG?raw=true" width="180" style="margin-right: 10px;" />
-  <img src="https://github.com/Prabathunni/DocPrescribe/blob/main/frontend/src/assets/img3.PNG?raw=true" width="180" style="margin-right: 10px;" />
+  <img src="https://github.com/Prabathunni/DocPrescribe/blob/main/frontend/src/assets/img1.PNG?raw=true" width="180" style="margin-right: 20px;" />
+  <img src="https://github.com/Prabathunni/DocPrescribe/blob/main/frontend/src/assets/img2.PNG?raw=true" width="180" style="margin-right: 20px;" />
+  <img src="https://github.com/Prabathunni/DocPrescribe/blob/main/frontend/src/assets/img3.PNG?raw=true" width="180" style="margin-right: 20px;" />
   <img src="https://github.com/Prabathunni/DocPrescribe/blob/main/frontend/src/assets/img4.PNG?raw=true" width="180" />
 </p>
 
