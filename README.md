@@ -5,7 +5,7 @@ DocPrescribe is a full-stack web application built using the MERN stack (MongoDB
 
 ## Tech Stack
 
-- **Frontend**: React.js , Axios, react-toastify, html2pdf.js, react-bootstrap
+- **Frontend**: React.js , Axios, react-toastify, html2pdf.js, react-bootstrap , react-router-dom
 - **Backend**: Node.js, Express.js, bcrypt  
 - **Database**: MongoDB (with Mongoose)
 - **Authentication**: JWT , HTTP-Only Cookies
