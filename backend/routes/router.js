@@ -6,8 +6,10 @@ const verifyController = require('../controllers/verifyController');
 const router = express.Router();
 
 
-// Dr Authentication____________________________________________
+//  Authentication____________________________________________
+// register
 router.post('/auth/register', registerDocController);
+// login
 router.post('/auth/login', loginDocController);
 // logout 
 router.get('/auth/logout', jwtMiddleware, logoutDocController);
