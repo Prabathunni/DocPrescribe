@@ -38,7 +38,6 @@ function InputAquire() {
 
     } catch (error) {
       toast.warning("Prescription Not Saved!")
-      console.log(error);
       setIsloading(false)
 
     } finally {

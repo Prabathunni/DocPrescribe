@@ -36,9 +36,8 @@ function Login() {
       navigate('/pickup')
 
     } catch (error) {
-      console.log(error);
       setIsloading(false)
-      toast.error(error.response.data)
+      toast.error(error?.response.data)
 
     } finally {
       setIsloading(false)

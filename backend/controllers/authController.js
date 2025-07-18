@@ -13,7 +13,7 @@ exports.registerDocController = async (req,res) => {
 
         const existingUser = await doctorModel.findOne({email});
 
-        if(existingUser) return res.status(404).json("User Email Already Have an Account");
+        if(existingUser) return res.status(404).json("Registered Email");
 
         const encryptedPassword = await bCrypt.hash(password, 8)
 

@@ -15,8 +15,8 @@ function Prescriptions() {
         setData(result?.data)
         
       } catch (error) {
-        console.log(error);
-        
+        // console.log(error);
+        return setData([])
       }
     }
     getAllPrescription()

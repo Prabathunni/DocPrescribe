@@ -38,9 +38,8 @@ function Register() {
       navigate('/')
 
     } catch (error) {
-      console.log(error);
       setIsloading(false)
-      toast.error("Register Failed")
+      toast.error(error?.response.data)
 
     } finally {
       setIsloading(false)

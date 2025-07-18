@@ -3,7 +3,6 @@ import React from 'react'
 function ReviewPrescription({ formData, printEvent, pdfDownload }) {
 
   const doctorData = JSON.parse(sessionStorage.getItem('user'))
-  console.log(doctorData);
   
 
 
